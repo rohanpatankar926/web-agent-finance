@@ -53,12 +53,9 @@ st.write("Ask a question and let the agents work together to respond!")
 query = st.text_input("Enter your query here", value="Summarize analyst recommendations for NVDA")
 
 if st.button("Run Agent Team"):
-    try:
         with st.spinner("Thinking..."):
             placeholder = st.empty()
             response = ""
             for chunk in agent_team.run(query,stream=True):
-                response += chunk.content
+                response += str(chunk.content)
                 placeholder.markdown(response, unsafe_allow_html=True)
-    except Exception as e:
-        placeholder.markdown("Please retry...", unsafe_allow_html=True)
