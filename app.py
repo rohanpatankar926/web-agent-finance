@@ -56,6 +56,6 @@ if st.button("Run Agent Team"):
     with st.spinner("Thinking..."):
         placeholder = st.empty()
         response = ""
-        for chunk in agent_team.run(query):
+        for chunk in agent_team.run(query,stream=True):
             response += chunk.content
             placeholder.markdown(response, unsafe_allow_html=True)
