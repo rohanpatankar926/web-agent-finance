@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  ai-agent-app:
+    build: .
+    container_name: ai_agent
+    command: streamlit run app.py
+    ports:
+      - "8501:8501"
+    environment:
+      - GROQ_API_KEY=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
