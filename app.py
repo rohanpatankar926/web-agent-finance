@@ -55,6 +55,6 @@ query = st.text_input("Enter your query here", value="Summarize analyst recommen
 if st.button("Run Agent Team"):
     with st.spinner("Thinking..."):
         response = ""
-        for chunk in agent_team.run("hello",stream=True):
+        for chunk in agent_team.run(query,stream=True):
             response += chunk.content
             st.markdown(response, unsafe_allow_html=True)
