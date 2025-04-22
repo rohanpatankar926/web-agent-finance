@@ -12,7 +12,7 @@ load_dotenv()
 web_search_agent = Agent(
     name="Web Agent",
     description="This is the agent for searching content from the web",
-    model=Groq(id="llama-3.3-70b-versatile"),
+    model=Groq(id="llama3-70b-8192"),
     tools=[DuckDuckGo()],
     instructions="Always include the sources",
     show_tool_calls=True,
@@ -23,7 +23,7 @@ web_search_agent = Agent(
 finance_agent = Agent(
     name="Finance Agent",
     description="Your task is to find the financial information",
-    model=Groq(id="llama-3.3-70b-versatile"),
+    model=Groq(id="llama3-70b-8192"),
     tools=[YFinanceTools(
         stock_price=True,
         analyst_recommendations=True,
@@ -38,7 +38,7 @@ finance_agent = Agent(
 
 agent_team = Agent(
     team=[web_search_agent, finance_agent],
-    model=Groq(id="llama-3.3-70b-versatile"),
+    model=Groq(id="llama3-70b-8192"),
     instructions=["Always include sources", "Use tables to display data"],
     show_tool_calls=True,
     markdown=True,
